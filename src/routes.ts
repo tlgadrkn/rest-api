@@ -40,10 +40,15 @@ export default function routes(app: Express) {
   app.get('/api/sessions', requireUser, getUserSessionsHandler);
   app.delete('/api/sessions', requireUser, deleteUserSessionHandler);
   app.post(
-    '/api/products/:productId',
+    '/api/products',
     [requireUser, validateResource(createProductSchema)],
     createProductHandler,
   );
+  // app.post(
+  //   '/api/products/:productId',
+  //   [requireUser, validateResource(createProductSchema)],
+  //   createProductHandler,
+  // );
 
   app.put(
     '/api/products/:productId',

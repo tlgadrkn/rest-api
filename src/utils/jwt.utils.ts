@@ -16,7 +16,7 @@ export function verifyJwt(token: string) {
       expired: false,
       decoded,
     };
-  } catch (error) {
+  } catch (error: any) {
     return {
       valid: false,
       expired: error.message === 'jwt expired',
@@ -33,7 +33,7 @@ export function verifyRefreshToken(token: string) {
       expired: false,
       decoded,
     };
-  } catch (error) {
+  } catch (error: any) {
     return {
       valid: false,
       expired: error.message === 'jwt expired',
